@@ -38,9 +38,9 @@ class LoginPage extends React.Component {
   }
 
   routeChange = () => {
-    let path = `/protected`;
+    let path = `/dashboard`;
     this.props.history.push(path);
-  }
+  };
   postCredencials = async () => {
     let response = await Axios({
       method: 'post',
@@ -87,7 +87,7 @@ class LoginPage extends React.Component {
                 <Col className="ml-auto mr-auto" lg="4">
                   <Card className="card-register ml-auto mr-auto">
                     <h3 className="title mx-auto">Welcome</h3>
-                    <Form className="register-form" onSubmit={this.handleSubmit}>
+                    <Form className="register-form" onSubmit={this.handleSubmit} >
                       <FormGroup>
                         <label>Email</label>
                         <Input placeholder="Email" autoFocus

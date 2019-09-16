@@ -31,6 +31,7 @@ import LandingPage from "./views/examples/LandingPage.js";
 import ProfilePage from "./views/examples/ProfilePage.js";
 import RegisterPage from "./views/examples/RegisterPage.js";
 import LoginPage from "./views/examples/LoginPage";
+import AdminLayout from "./layouts/Admin.jsx";
 // others
 
 const Auth = {
@@ -73,11 +74,13 @@ const AuthButton = (
     )
 )
 
-const Protected = () => <h3>Protected</h3>;
+const Protected = () => <h3>Protected {AuthButton}</h3>;
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
+        <Route path="/admin" render={props => <AdminLayout {...props} />} />
+        {/*<Redirect to="/admin/dashboard" />*/}
       <Route path="/index" render={props => <Index {...props} />} />
       <Route
         path="/nucleo-icons"
