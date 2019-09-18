@@ -19,6 +19,8 @@
 import React from "react";
 import Axios from "axios";
 
+import "../../assets/scss/paper-kit.scss";
+
 // reactstrap components
 import {Button, Card, Form, Input, Container, Row, Col, Alert} from "reactstrap";
 

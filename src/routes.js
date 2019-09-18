@@ -19,6 +19,7 @@
 import Dashboard from "./views/Dashboard.jsx";
 import TableList from "./views/Tables.jsx";
 import UserPage from "./views/User.jsx";
+import Logout from "./components/Logout.jsx";
 
 var routes = [
   {
@@ -40,6 +41,13 @@ var routes = [
     name: "Audiences",
     icon: "fa fa-rocket",
     component: TableList,
+    layout: "/admin"
+  },
+  {
+    path: "/login",
+    name: "Logout",
+    icon: "fa fa-rocket",
+    component: Logout,
     layout: "/admin"
   }
 ];

@@ -32,8 +32,72 @@ import {
   Row,
   Col
 } from "reactstrap";
+import "../assets/scss/paper-dashboard.scss";
+import Axios from "axios";
 
 class User extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      jwt: "",
+      mailAddress: "",
+      society: "",
+      postalAddress: ""
+
+    };
+  }
+
+  getUserInformation = async (jwt) => {
+
+    let response = await Axios.get('http://localhost:8080/details',{
+      headers: {
+        'Authorization' : 'Bearer ' + jwt,
+      }
+
+    });
+    this.setState({
+      mailAddress : response.data.mailAddress,
+      society : response.data.society,
+      postalAddress : response.data.postalAddress
+    });
+  };
+
+  getToken = () => {
+    const TOKEN = localStorage.getItem('access_token');
+    return TOKEN;
+  };
+
+  putNewUserInformations = async (jwt) => {
+
+    await Axios({
+      method: 'put',
+      url: 'http://localhost:8080/details',
+      headers: {
+        'Authorization': 'Bearer ' + jwt,
+      },
+      data: {
+        mailAddress: this.state.mailAddress,
+        society: this.state.society,
+        postalAddress: this.state.postalAddress
+      }
+    });
+  }
+
+  componentDidMount() {
+    let jwt = this.getToken();
+    this.getUserInformation(jwt);
+  }
+  handleChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  };
+  handleSubmit = event => {
+    event.preventDefault();
+    let jwt = this.getToken();
+    this.putNewUserInformations(jwt);
+  };
+
   render() {
     return (
       <>
@@ -45,7 +109,7 @@ class User extends React.Component {
                   <CardTitle tag="h5">Edit Details</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Form>
+                  <Form onSubmit={this.handleSubmit}>
                     <Row>
                       <Col className="pr-1" md="6">
                         <FormGroup>
@@ -53,6 +117,9 @@ class User extends React.Component {
                           <Input
                             placeholder="Your Company Name"
                             type="text"
+                            id="society"
+                            value={this.state.society}
+                            onChange={this.handleChange}
                           />
                         </FormGroup>
                       </Col>
@@ -61,7 +128,11 @@ class User extends React.Component {
                           <label htmlFor="exampleInputEmail1">
                             Email address
                           </label>
-                          <Input placeholder="Email" type="email" />
+                          <Input placeholder="Email"
+                                 type="email"
+                                 id="mailAddress"
+                                 value={this.state.mailAddress}
+                                 onChange={this.handleChange}/>
                         </FormGroup>
                       </Col>
                     </Row>
@@ -72,6 +143,9 @@ class User extends React.Component {
                           <Input
                             placeholder="Company Address"
                             type="textarea"
+                            value={this.state.postalAddress}
+                            id="postalAddress"
+                            onChange={this.handleChange}
                           />
                         </FormGroup>
                       </Col>

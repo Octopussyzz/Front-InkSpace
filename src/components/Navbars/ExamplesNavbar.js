@@ -98,7 +98,7 @@ function ExamplesNavbar() {
         >
           <Nav navbar>
             <NavItem>
-              <NavLink to="/index" tag={Link}>
+              <NavLink to="/login" tag={Link}>
                 <i className="nc-icon nc-single-02" /> Login
               </NavLink>
             </NavItem>
