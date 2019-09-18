@@ -31,6 +31,7 @@ import ProfilePage from "./views/examples/ProfilePage.js";
 import RegisterPage from "./views/examples/RegisterPage.js";
 import LoginPage from "./views/examples/LoginPage";
 import AdminLayout from "./layouts/Admin.jsx";
+import FormAudience from "./components/FormAudience";
 // others
 
 const Auth = {

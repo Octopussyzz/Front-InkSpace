@@ -28,6 +28,8 @@ import Sidebar from "../components/Sidebar/Sidebar.jsx";
 
 
 import routes from "../routes.js";
+import Index from "../views/Index";
+import FormAudience from "../components/FormAudience";
 
 var ps;
 
@@ -85,6 +87,7 @@ class Dashboard extends React.Component {
                 />
               );
             })}
+            <Route path="/admin/audience" render={props => <FormAudience {...props} />} />
           </Switch>
           <Footer fluid />
         </div>

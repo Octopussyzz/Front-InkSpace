@@ -29,6 +29,7 @@ import {
   Col, Button,
     UncontrolledTooltip
 } from "reactstrap";
+import Audience from "../components/Audience";
 
 class Tables extends React.Component {
   render() {
@@ -40,160 +41,11 @@ class Tables extends React.Component {
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Manage Audiences</CardTitle>
-                  <Button className="btn-sm btn-round btn-success"><i className="fa fa-plus"/> New Audience</Button>
+                  <Button className="btn-sm btn-round btn-success" href="/admin/audience"><i className="fa fa-plus"/> New Audience</Button>
                 </CardHeader>
                 <CardBody>
                   <ul className="list-unstyled team-members">
-                    <li>
-                      <Row>
-                        <Col className="col-ms-9" xs="9">
-                          Newsletter Suntrip <br />
-                          <span className="text-muted">
-                            <small>Created at 2019-05-07</small>
-                          </span>
-                        </Col>
-                        <Col className="justify-content-around" md="3" xs="3">
-                          <Row className="justify-content-around">
-                            <UncontrolledTooltip placement="right" target="mailIcon1">
-                              New Mail
-                            </UncontrolledTooltip>
-                            <UncontrolledTooltip placement="right" target="cogIcon1">
-                              Parameters
-                            </UncontrolledTooltip>
-                            <UncontrolledTooltip placement="right" target="deleteIcon1">
-                              Delete Audience
-                            </UncontrolledTooltip>
-                            <Button
-                                className="btn-round btn-icon"
-                                color="danger"
-                                outline
-                                size="sm"
-                                id="deleteIcon1"
-                            >
-                              <i className="fa fa-times" />
-                            </Button>
-                            <Button
-                                className="btn-round btn-icon"
-                                color="warning"
-                                outline
-                                size="sm"
-                                id="cogIcon1"
-                            >
-                              <i className="fa fa-cog" />
-                            </Button>
-                            <Button
-                                className="btn-round btn-icon"
-                                color="success"
-                                outline
-                                size="sm"
-                                id="mailIcon1"
-                            >
-                              <i className="fa fa-envelope" />
-                            </Button>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </li>
-                    <li>
-                      <Row>
-                        <Col className="col-ms-9" xs="9">
-                          Promotion Bullshit <br />
-                          <span className="text-muted">
-                            <small>Created at 2017-06-28</small>
-                          </span>
-                        </Col>
-                        <Col className="justify-content-around" md="3" xs="3">
-                          <Row className="justify-content-around">
-                            <UncontrolledTooltip placement="right" target="mailIcon2">
-                              New Mail
-                            </UncontrolledTooltip>
-                            <UncontrolledTooltip placement="right" target="cogIcon2">
-                              Parameters
-                            </UncontrolledTooltip>
-                            <UncontrolledTooltip placement="right" target="deleteIcon2">
-                              Delete Audience
-                            </UncontrolledTooltip>
-                            <Button
-                                className="btn-round btn-icon"
-                                color="danger"
-                                outline
-                                size="sm"
-                                id="deleteIcon2"
-                            >
-                              <i className="fa fa-times" />
-                            </Button>
-                            <Button
-                                className="btn-round btn-icon"
-                                color="warning"
-                                outline
-                                size="sm"
-                                id="cogIcon2"
-                            >
-                              <i className="fa fa-cog" />
-                            </Button>
-                            <Button
-                                className="btn-round btn-icon"
-                                color="success"
-                                outline
-                                size="sm"
-                                id="mailIcon2"
-                            >
-                              <i className="fa fa-envelope" />
-                            </Button>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </li>
-                    <li>
-                      <Row>
-                        <Col className="col-ms-9" xs="9">
-                          Premium User Shit <br />
-                          <span className="text-muted">
-                            <small>Created at 2015-02-21</small>
-                          </span>
-                        </Col>
-                        <Col className="justify-content-around" md="3" xs="3">
-                          <Row className="justify-content-around">
-                            <UncontrolledTooltip placement="right" target="mailIcon3">
-                              New Mail
-                            </UncontrolledTooltip>
-                            <UncontrolledTooltip placement="right" target="cogIcon3">
-                              Parameters
-                            </UncontrolledTooltip>
-                            <UncontrolledTooltip placement="right" target="deleteIcon3">
-                              Delete Audience
-                            </UncontrolledTooltip>
-                            <Button
-                                className="btn-round btn-icon"
-                                color="danger"
-                                outline
-                                size="sm"
-                                id="deleteIcon3"
-                            >
-                              <i className="fa fa-times" />
-                            </Button>
-                            <Button
-                                className="btn-round btn-icon"
-                                color="warning"
-                                outline
-                                size="sm"
-                                id="cogIcon3"
-                            >
-                              <i className="fa fa-cog" />
-                            </Button>
-                            <Button
-                                className="btn-round btn-icon"
-                                color="success"
-                                outline
-                                size="sm"
-                                id="mailIcon3"
-                            >
-                              <i className="fa fa-envelope" />
-                            </Button>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </li>
+                    <Audience/>
                   </ul>
                 </CardBody>
               </Card>
