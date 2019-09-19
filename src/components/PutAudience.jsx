@@ -4,14 +4,16 @@ import {Button, Card, CardBody, CardHeader, CardTitle, Col, Form, FormGroup, Inp
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-class FormAudience extends React.Component {
+class PutAudience extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            //id: null,
             name: "",
             description: "",
-            public: false
+            public: false,
+            file: null
         }
     }
 
@@ -20,12 +22,38 @@ class FormAudience extends React.Component {
         return token;
     };
 
-    postAudiences = async (jwt) => {
-         await Axios({
-            method: 'post',
-            url: 'http://localhost:8080/audience',
+    getOneAudience = async (jwt, id ) => {
+        let response = await Axios.get('http://localhost:8080/audience/' + id,{
+            headers: {
+                'Authorization': 'Bearer ' + jwt,
+            }
+        });
+        this.setState({
+               //id: response.data.id,
+                name: response.data.name,
+                description: response.data.description,
+                public: response.data.public
+            }
+
+        )
+    };
+
+componentDidMount() {
+    let jwt = this.getToken();
+    let id = this.props.match.params.id;
+    console.log(this.props.match.params.id);
+    //let id = this.state.id;
+    console.log(id);
+    //this.getOneAudience(jwt,id);
+}
+
+    putAudiences = async (jwt, id) => {
+        await Axios({
+            method: 'put',
+            url: 'http://localhost:8080/audience/' + id,
             headers: {
                 'Authorization' : 'Bearer ' + jwt,
+                'Content-Type' : 'multipart/'
             },
             data: {
                 name: this.state.name,
@@ -37,23 +65,47 @@ class FormAudience extends React.Component {
         });
     };
 
+    handleUpload = async (jwt, id) => {
+        let file = this.state.file;
+        let formdata = new FormData();
+
+        formdata.append('file', file);
+
+        await Axios({
+            method: 'post',
+            url: 'http://localhost:8080/subscribe/' + id + '/file',
+            headers: {
+                'Authorization' : 'Bearer ' + jwt,
+            },
+            data: formdata
+        })
+    }
+
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
         });
     };
 
+    handleFile = event => {
+        this.setState({ file: event.target.files[0] })
+    }
+
     handleDescriptionChange = (description) => {
         this.setState({
             description: description
-        })
+        });
+        console.log(this.props)
+        console.log(this.state)
     }
 
-    handleSubmit= event => {
+    handleSubmit = event => {
         event.preventDefault();
-       let jwt = this.getToken();
-        this.postAudiences(jwt);
-        window.location = "/admin/audiences"
+        let jwt = this.getToken();
+        let id = this.props.match.params.id;
+        //this.putAudiences(jwt,id);
+        this.handleUpload(jwt, id);
+        // window.location = "/admin/audiences"
     };
 
     handleCheckbox = () => {
@@ -69,10 +121,10 @@ class FormAudience extends React.Component {
                         <Col md="10">
                             <Card className="card-user">
                                 <CardHeader>
-                                    <CardTitle tag="h5">Create Audience </CardTitle>
+                                    <CardTitle tag="h5">Edit Audience </CardTitle>
                                 </CardHeader>
                                 <CardBody>
-                                    <Form onSubmit={this.handleSubmit} action="/admin/audiences">
+                                    <Form onSubmit={this.handleSubmit} >
                                         <Row>
                                             <Col className="pr-1" md="12">
                                                 <FormGroup>
@@ -80,7 +132,7 @@ class FormAudience extends React.Component {
                                                     <Input
                                                         type="text"
                                                         id="name"
-                                                        value={this.state.name}
+                                                        defaultValue={this.state.name}
                                                         onChange={this.handleChange}
                                                     />
                                                 </FormGroup>
@@ -103,6 +155,11 @@ class FormAudience extends React.Component {
                                         </Row>
                                         <Row>
                                             <Col md="12">
+                                                <Input type="file" onChange={this.handleFile} id="file" name="file"/>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col md="12">
                                                 <FormGroup>
                                                     <label htmlFor="exampleInputEmail1">Public Audience ?</label>
                                                     <Input
@@ -116,7 +173,7 @@ class FormAudience extends React.Component {
                                         </Row>
                                         <Row className="justify-content-center">
                                             <Col md="5">
-                                                <Button className="btn btn-round btn-danger" type="submit">Create Audience </Button>
+                                                <Button className="btn btn-round btn-danger" type="submit">Update Audience </Button>
                                             </Col>
                                         </Row>
                                     </Form>
@@ -130,4 +187,4 @@ class FormAudience extends React.Component {
     }
 }
 
-export default FormAudience;
+export default PutAudience;

@@ -30,6 +30,8 @@ import Sidebar from "../components/Sidebar/Sidebar.jsx";
 import routes from "../routes.js";
 import Index from "../views/Index";
 import FormAudience from "../components/FormAudience";
+import PutAudience from "../components/PutAudience";
+import CreateMail from "../components/CreateMail";
 
 var ps;
 
@@ -87,7 +89,11 @@ class Dashboard extends React.Component {
                 />
               );
             })}
+            <Route path="/admin/audience/:id/mail" render={props => <CreateMail {...props} />} />
+            <Route path="/admin/audience/:id" render={(props) => <PutAudience {...props} />} />
             <Route path="/admin/audience" render={props => <FormAudience {...props} />} />
+
+
           </Switch>
           <Footer fluid />
         </div>
