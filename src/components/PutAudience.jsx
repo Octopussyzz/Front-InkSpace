@@ -42,18 +42,17 @@ componentDidMount() {
     let jwt = this.getToken();
     let id = this.props.match.params.id;
     console.log(this.props.match.params.id);
-    //let id = this.state.id;
     console.log(id);
-    //this.getOneAudience(jwt,id);
+    this.getOneAudience(jwt,id);
 }
 
     putAudiences = async (jwt, id) => {
+
         await Axios({
             method: 'put',
             url: 'http://localhost:8080/audience/' + id,
             headers: {
                 'Authorization' : 'Bearer ' + jwt,
-                'Content-Type' : 'multipart/'
             },
             data: {
                 name: this.state.name,
@@ -65,13 +64,13 @@ componentDidMount() {
         });
     };
 
-    handleUpload = async (jwt, id) => {
+    handleUpload = (jwt, id) => {
         let file = this.state.file;
         let formdata = new FormData();
 
         formdata.append('file', file);
 
-        await Axios({
+        Axios({
             method: 'post',
             url: 'http://localhost:8080/subscribe/' + id + '/file',
             headers: {
@@ -103,9 +102,9 @@ componentDidMount() {
         event.preventDefault();
         let jwt = this.getToken();
         let id = this.props.match.params.id;
-        //this.putAudiences(jwt,id);
         this.handleUpload(jwt, id);
-        // window.location = "/admin/audiences"
+        this.putAudiences(jwt,id);
+        window.location = "/admin/audiences"
     };
 
     handleCheckbox = () => {

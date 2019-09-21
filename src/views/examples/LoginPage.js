@@ -29,7 +29,7 @@ import FormGroup from "reactstrap/es/FormGroup";
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
-    this.routeChange = this.routeChange.bind(this);
+    //this.routeChange = this.routeChange.bind(this);
     this.state = {
       mailAddress: "",
       password: "",
@@ -37,10 +37,7 @@ class LoginPage extends React.Component {
     }
   }
 
-  routeChange = () => {
-    let path = `/dashboard`;
-    this.props.history.push(path);
-  };
+
   postCredencials = async () => {
     let response = await Axios({
       method: 'post',
@@ -55,7 +52,7 @@ class LoginPage extends React.Component {
     let jwt = response.data.token;
     if (response.status === 200 && jwt) {
       localStorage.setItem("access_token", jwt);
-      this.routeChange();
+      window.location = "/admin/dashboard";
     }
   };
 

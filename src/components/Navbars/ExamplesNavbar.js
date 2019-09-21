@@ -73,7 +73,6 @@ function ExamplesNavbar() {
           <NavbarBrand
             data-placement="bottom"
             to="/landing-page"
-            target="_blank"
             title="Coded by Creative Tim"
             tag={Link}
           >
@@ -105,7 +104,6 @@ function ExamplesNavbar() {
             <NavItem>
               <NavLink
                 href="/register-page"
-                target="_blank"
               >
                 <i className="nc-icon nc-satisfied" /> Register
               </NavLink>

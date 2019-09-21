@@ -33,30 +33,28 @@ class Footer extends React.Component {
             <nav className="footer-nav">
               <ul>
                 <li>
-                  <a href="https://www.creative-tim.com" target="_blank">
-                    Creative Tim
-                  </a>
-                </li>
-                <li>
-                  <a href="https://blog.creative-tim.com" target="_blank">
-                    Blog
+                  <a
+                      href="https://www.suntriprecords.com"
+                      target="_blank"
+                  >
+                    Suntrip Records
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://www.creative-tim.com/license"
-                    target="_blank"
+                      href="https://suntriprecords.bandcamp.com/"
+                      target="_blank"
                   >
-                    Licenses
+                    Bandcamp
                   </a>
                 </li>
               </ul>
             </nav>
             <div className="credits ml-auto">
-              <div className="copyright">
-                &copy; {1900 + new Date().getYear()}, made with{" "}
-                <i className="fa fa-heart heart" /> by Creative Tim
-              </div>
+            <span className="copyright">
+              © {new Date().getFullYear()}, made with{" "}
+              <i className="fa fa-heart heart" /> by Leet Suntrip Development™
+            </span>
             </div>
           </Row>
         </Container>

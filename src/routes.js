@@ -26,14 +26,14 @@ var routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    icon: "fa fa-globe-americas",
+    icon: "fas fa-globe-americas",
     component: Dashboard,
     layout: "/admin"
   },
   {
     path: "/user-page",
     name: "User Details",
-    icon: "fa fa-user-astronaut",
+    icon: "fas fa-user-astronaut",
     component: UserPage,
     layout: "/admin"
   },
@@ -47,7 +47,7 @@ var routes = [
   {
     path: "/login",
     name: "Logout",
-    icon: "fa fa-rocket",
+    icon: "fas fa-sign-out-alt",
     component: Logout,
     layout: "/admin"
   }
