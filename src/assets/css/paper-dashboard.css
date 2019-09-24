@@ -3152,7 +3152,7 @@ License - nucleoapp.com/license/
   .off-canvas-sidebar .sidebar-wrapper {
     position: relative;
     height: calc(100vh - 75px);
-    width: 260px;
+    width: 200px;
     z-index: 4;
     padding-bottom: 100px; }
     .sidebar .sidebar-wrapper .dropdown .dropdown-backdrop,

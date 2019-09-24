@@ -23,7 +23,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 // styles
 import "./assets/css/bootstrap.min.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
-import "./assets/css/paper-kit.css"
+import "./assets/css/paper-kit.css";
 // pages
 import Index from "./views/Index.js";
 import NucleoIcons from "./views/NucleoIcons.js";

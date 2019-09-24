@@ -23,7 +23,7 @@ class PutAudience extends React.Component {
     };
 
     getOneAudience = async (jwt, id ) => {
-        let response = await Axios.get('http://localhost:8080/audience/' + id,{
+        let response = await Axios.get('http://localhost:8080/api/audience/' + id,{
             headers: {
                 'Authorization': 'Bearer ' + jwt,
             }
@@ -50,7 +50,7 @@ componentDidMount() {
 
         await Axios({
             method: 'put',
-            url: 'http://localhost:8080/audience/' + id,
+            url: 'http://localhost:8080/api/audience/' + id,
             headers: {
                 'Authorization' : 'Bearer ' + jwt,
             },
@@ -72,7 +72,7 @@ componentDidMount() {
 
         Axios({
             method: 'post',
-            url: 'http://localhost:8080/subscribe/' + id + '/file',
+            url: 'http://localhost:8080/api/subscribe/' + id + '/file',
             headers: {
                 'Authorization' : 'Bearer ' + jwt,
             },

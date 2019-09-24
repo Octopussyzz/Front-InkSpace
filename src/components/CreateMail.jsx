@@ -24,7 +24,7 @@ class CreateMail extends React.Component {
     };
 
     getOneAudience = async (jwt, id ) => {
-        let response = await Axios.get('http://localhost:8080/audience/' + id,{
+        let response = await Axios.get('http://localhost:8080/api/audience/' + id,{
             headers: {
                 'Authorization': 'Bearer ' + jwt,
             }
@@ -40,7 +40,7 @@ class CreateMail extends React.Component {
     postMail = async (jwt, id ) => {
         await Axios({
             method: 'post',
-            url: 'http://localhost:8080/' + id + '/mail',
+            url: 'http://localhost:8080/api/' + id + '/mail',
             headers: {
                 'Authorization' : 'Bearer ' + jwt,
             },

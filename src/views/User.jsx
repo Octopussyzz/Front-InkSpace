@@ -49,7 +49,7 @@ class User extends React.Component {
 
   getUserInformation = async (jwt) => {
 
-    let response = await Axios.get('http://localhost:8080/details',{
+    let response = await Axios.get('http://localhost:8080/api/details',{
       headers: {
         'Authorization' : 'Bearer ' + jwt,
       }
@@ -71,7 +71,7 @@ class User extends React.Component {
 
     await Axios({
       method: 'put',
-      url: 'http://localhost:8080/details',
+      url: 'http://localhost:8080/api/details',
       headers: {
         'Authorization': 'Bearer ' + jwt,
       },

@@ -34,6 +34,7 @@ import FormAudience from "../components/FormAudience";
 import PutAudience from "../components/PutAudience";
 import CreateMail from "../components/CreateMail";
 import MailList from "../components/MailList";
+import PutMail from "../components/PutMail";
 
 var ps;
 
@@ -95,6 +96,7 @@ class Dashboard extends React.Component {
             <Route path="/admin/audience/:id" render={(props) => <PutAudience {...props} />} />
             <Route path="/admin/audience" render={props => <FormAudience {...props} />} />
             <Route path="/admin/:id/mails" render={props => <MailList {...props} />} />
+            <Route path="/admin/:id/mail/:mail_id" render={props => <PutMail {...props} />}/>
           </Switch>
           <Footer fluid />
         </div>

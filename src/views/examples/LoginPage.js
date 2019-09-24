@@ -29,7 +29,6 @@ import FormGroup from "reactstrap/es/FormGroup";
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
-    //this.routeChange = this.routeChange.bind(this);
     this.state = {
       mailAddress: "",
       password: "",
@@ -41,7 +40,7 @@ class LoginPage extends React.Component {
   postCredencials = async () => {
     let response = await Axios({
       method: 'post',
-      url: 'http://localhost:8080/authenticate',
+      url: 'http://localhost:8080/api/authenticate',
       data: {
         mailAddress: this.state.mailAddress,
         password: this.state.password

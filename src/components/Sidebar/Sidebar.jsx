@@ -60,7 +60,6 @@ class Sidebar extends React.Component {
 
 
           <a
-            href="https://www.creative-tim.com"
             className="simple-text logo-normal"
           > <i className="nc-icon nc-planet text-danger mr-2" />
              Ink Space

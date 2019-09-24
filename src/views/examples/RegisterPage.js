@@ -47,7 +47,7 @@ class Register extends React.Component {
   postCredencials = () => {
     Axios({
       method: 'post',
-      url: 'http://localhost:8080/register',
+      url: 'http://localhost:8080/api/register',
       data: {
         mailAddress: this.state.mailAddress,
         password: this.state.password

@@ -18,7 +18,7 @@ class Audience extends React.Component {
     };
 
     getAudiences = async (jwt) => {
-        let response = await Axios.get('http://localhost:8080/audiences',{
+        let response = await Axios.get('http://localhost:8080/api/audiences',{
             headers: {
                 'Authorization': 'Bearer ' + jwt
             }

@@ -20,7 +20,7 @@ class DeleteButton extends React.Component {
 
     deleteAudience = (id) => {
         let jwt = localStorage.getItem('access_token');
-        Axios.delete('http://localhost:8080/audience/' + id, {
+        Axios.delete('http://localhost:8080/api/audience/' + id, {
             headers: {
                 'Authorization' : 'Bearer ' + jwt,
             }

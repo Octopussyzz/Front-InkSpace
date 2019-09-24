@@ -7,7 +7,6 @@ class MailsButton extends React.Component {
     }
 
     handleClick = () => {
-        console.log(this.props);
         let id = this.props.audience.id;
         window.location = "/admin/" + id + "/mails";
     };
@@ -15,8 +14,8 @@ class MailsButton extends React.Component {
     render() {
         return (
             <>
-                <Col className="col-ms-9" xs="9" onClick={this.handleClick}>
-                    {this.props.audience.name} <br />
+                <Col className="col-ms-9" xs="9" onClick={this.handleClick} style={{cursor:'pointer'}}>
+                    <b >{this.props.audience.name}</b> <br />
                     <span className="text-muted">
                         <small>Updated at {this.props.audience.updatedAt}</small>
                     </span>
