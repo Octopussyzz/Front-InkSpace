@@ -65,7 +65,13 @@ class LoginPage extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.postCredencials();
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let dangerMessage = document.getElementById("loginInfo");
+    if (re.test(this.state.mailAddress)  ) {
+      this.postCredencials();
+    } else  {
+      dangerMessage.setAttribute('style', 'display:flex;');
+    }
   };
 
   render() {
@@ -84,6 +90,16 @@ class LoginPage extends React.Component {
                 <Col className="ml-auto mr-auto" lg="4">
                   <Card className="card-register ml-auto mr-auto">
                     <h3 className="title mx-auto">Welcome</h3>
+                    <Alert className="alert-with-icon" color="danger"  id="loginInfo"  style={{display:'none'}}>
+                      <Container>
+                        <div className="alert-wrapper">
+
+                          <div className="message">
+                            <i className="nc-icon nc-bell-55" /> Invalid Credentials
+                          </div>
+                        </div>
+                      </Container>
+                    </Alert>
                     <Form className="register-form" onSubmit={this.handleSubmit} >
                       <FormGroup>
                         <label>Email</label>
@@ -97,7 +113,7 @@ class LoginPage extends React.Component {
                              id="password"
                              onChange={this.handleChange}
                              type="password" />
-                      <div id ="invalidCredential" style={{ display: 'none'}} className={"text-center"}>Invalid Credentials</div>
+
                       <Button block className="btn-round" color="danger">
                         Login
                       </Button>

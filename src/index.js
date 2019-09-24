@@ -39,15 +39,15 @@ const Auth = {
   isAuthenticated: false
 };
 
-function getToken() {
-  const TOKEN = localStorage.getItem('access_token');
-  TOKEN != null ? Auth.isAuthenticated = true : Auth.isAuthenticated = false;
-  return TOKEN;
+const isConnected = () =>  {
+    const TOKEN = localStorage.getItem('access_token');
+    TOKEN != null ? Auth.isAuthenticated = true : Auth.isAuthenticated = false;
+    console.log(Auth.isAuthenticated);
+    return TOKEN;
 }
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
+export const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
-        Auth.isAuthenticated === true
+            isConnected()
             ? <Component {...props} />
             : <Redirect to={{
               pathname: '/landing-page',
@@ -60,6 +60,7 @@ function sendLogout() {
   const TOKEN = localStorage.getItem('access_token');
   if (TOKEN) {
     localStorage.removeItem('access_token');
+    Auth.isAuthenticated = false;
     this.routeChange();
   }
 }
@@ -80,8 +81,8 @@ const Protected = () => <h3>Protected {AuthButton}</h3>;
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-        <Route path="/admin" render={props => <AdminLayout {...props} />} />
-        {/*<Redirect to="/admin/dashboard" />*/}
+        <Route path="/admin"  render={props => <AdminLayout {...props} />} />
+
       <Route path="/index" render={props => <Index {...props} />} />
       <Route
         path="/nucleo-icons"
@@ -104,7 +105,8 @@ ReactDOM.render(
         render={props => <LoginPage />}
       />
       <PrivateRoute path='/protected' component={Protected} />
-      <Redirect to="/landing-page" />
+        {/*<Redirect to="/landing-page" />*/}
+        {/*<Redirect to="/admin/dashboard" />*/}
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

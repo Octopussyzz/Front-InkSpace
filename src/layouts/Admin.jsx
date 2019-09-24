@@ -28,10 +28,12 @@ import Sidebar from "../components/Sidebar/Sidebar.jsx";
 
 
 import routes from "../routes.js";
+import {PrivateRoute} from "../index.js";
 import Index from "../views/Index";
 import FormAudience from "../components/FormAudience";
 import PutAudience from "../components/PutAudience";
 import CreateMail from "../components/CreateMail";
+import MailList from "../components/MailList";
 
 var ps;
 
@@ -82,7 +84,7 @@ class Dashboard extends React.Component {
           <Switch>
             {routes.map((prop, key) => {
               return (
-                <Route
+                <PrivateRoute
                   path={prop.layout + prop.path}
                   component={prop.component}
                   key={key}
@@ -92,8 +94,7 @@ class Dashboard extends React.Component {
             <Route path="/admin/audience/:id/mail" render={props => <CreateMail {...props} />} />
             <Route path="/admin/audience/:id" render={(props) => <PutAudience {...props} />} />
             <Route path="/admin/audience" render={props => <FormAudience {...props} />} />
-
-
+            <Route path="/admin/:id/mails" render={props => <MailList {...props} />} />
           </Switch>
           <Footer fluid />
         </div>

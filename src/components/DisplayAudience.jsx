@@ -4,6 +4,7 @@ import Axios from "axios";
 import DeleteButton from "./DeleteButton";
 import PutButton from "./PutButton";
 import CreateMailButton from "./CreateMailButton";
+import MailsButton from "./MailsButton";
 
 class DisplayAudience extends React.Component {
 
@@ -16,12 +17,13 @@ class DisplayAudience extends React.Component {
         return (
             <li key={this.props.audience.id}>
             <Row>
-                <Col className="col-ms-9" xs="9">
+                <MailsButton audience={this.props.audience} />
+                {/*<Col className="col-ms-9" xs="9">
                     {this.props.audience.name} <br />
                     <span className="text-muted">
                                 <small>Updated at {this.props.audience.updatedAt}</small>
                               </span>
-                </Col>
+                </Col>*/}
                 <Col className="justify-content-around" md="3" xs="3">
                     <Row className="justify-content-around">
 

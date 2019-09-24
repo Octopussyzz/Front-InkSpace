@@ -64,14 +64,13 @@ class Register extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if ((this.state.password) !== (this.state.passwordConfirmation)){
-        console.log("ERROR BITCH U DUMB AS FUCK");
-        let dangerMessage = document.getElementById("dangerInfo");
-        dangerMessage.setAttribute('style', 'display:flex;');
-
-    } else  {
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let dangerMessage = document.getElementById("dangerInfo");
+    if (re.test(this.state.mailAddress) && (this.state.password) === (this.state.passwordConfirmation) && this.state.password.length > 7  ) {
       this.postCredencials();
       this.routeChange();
+    } else  {
+      dangerMessage.setAttribute('style', 'display:flex;');
     }
   };
 
@@ -97,8 +96,8 @@ class Register extends React.Component {
                         <Container>
                           <div className="alert-wrapper">
 
-                            <div className="message text-justify">
-                              <i className="nc-icon nc-bell-55" /> The password and the confirmation
+                            <div className="message">
+                              <i className="nc-icon nc-bell-55" /> Email is not valid or he password and the confirmation
                               password are not the same !
                             </div>
                           </div>
