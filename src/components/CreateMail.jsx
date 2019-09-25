@@ -1,6 +1,19 @@
 import React from 'react';
 import Axios from "axios";
-import {Button, Card, CardBody, CardHeader, CardTitle, Col, Form, FormGroup, Input, Row} from "reactstrap";
+import {
+    Button,
+    Card,
+    CardBody,
+    CardHeader,
+    CardTitle,
+    Col,
+    Form,
+    FormGroup,
+    Input, Modal,
+    ModalBody, ModalFooter,
+    ModalHeader,
+    Row
+} from "reactstrap";
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
@@ -8,13 +21,15 @@ class CreateMail extends React.Component {
 
     constructor(props) {
         super(props);
+        this.toggle = this.toggle.bind(this);
         this.state = {
             subject: "",
             content: "",
             status: false,
             audienceTitle: "",
             audienceDescription: "",
-            public: false
+            public: false,
+            modal: false
         }
     }
 
@@ -94,6 +109,12 @@ class CreateMail extends React.Component {
         this.getOneAudience(jwt, id);
     }
 
+    toggle() {
+        this.setState(prevState => ({
+            modal: !prevState.modal
+        }));
+    }
+
     render() {
         return (
             <>
@@ -146,9 +167,21 @@ class CreateMail extends React.Component {
                                                         type="submit">Draft Mail </Button>
                                             </Col>
                                             <Col md="3">
-                                                <Button className="btn btn-round btn-success" onClick={this.handleSend}
-                                                        type="submit">Send Mail </Button>
+                                                <Button className="btn btn-round btn-success" onClick={this.toggle}
+                                                        >Send Mail </Button>
                                             </Col>
+
+                                            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                                                <ModalHeader toggle={this.toggle}>Are you sure ?</ModalHeader>
+                                                <ModalBody>
+                                                    Do you really want to send this mail ?
+                                                </ModalBody>
+                                                <ModalFooter>
+                                                    <Button color="primary" onClick={this.toggle}>Cancel</Button>{' '}
+                                                    <Button color="danger" type="submit" onClick={this.handleSubmit} >Send</Button>
+                                                </ModalFooter>
+                                            </Modal>
+
                                         </Row>
                                     </Form>
                                 </CardBody>

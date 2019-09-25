@@ -1,7 +1,5 @@
 import React from 'react';
-import {Route, Switch} from "react-router";
-import LoginPage from "../views/examples/LoginPage";
-import Register from "../views/examples/RegisterPage";
+import {Route} from "react-router";
 import AdminLayout from "../layouts/Admin";
 import Visitor from "../layouts/Visitor";
 

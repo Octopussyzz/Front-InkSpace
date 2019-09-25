@@ -80,7 +80,7 @@ componentDidMount() {
         event.preventDefault();
         let jwt = this.getToken();
         let idMail = this.props.match.params.mail_id;
-        let audienceId = this.props.match.params.id;
+        //let audienceId = this.props.match.params.id;
         this.putMail(jwt, idMail);
         window.location = "/admin/audiences"
     };

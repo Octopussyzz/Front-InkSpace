@@ -55,20 +55,6 @@ function LandingPageHeader() {
           <div className="motto text-center">
             <h1>Ink Space</h1>
             <h3>Where your project starts to shine</h3>
-            <br />
-            <Button
-              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-              className="btn-round mr-1"
-              color="neutral"
-              target="_blank"
-              outline
-            >
-              <i className="fa fa-play" />
-              Watch video
-            </Button>
-            <Button className="btn-round" color="neutral" type="button" outline>
-              Download
-            </Button>
           </div>
         </Container>
       </div>

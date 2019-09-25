@@ -24,6 +24,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import "./assets/css/bootstrap.min.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 import "./assets/css/paper-kit.css";
+
 // pages
 import Index from "./views/Index.js";
 import NucleoIcons from "./views/NucleoIcons.js";
@@ -32,7 +33,6 @@ import ProfilePage from "./views/examples/ProfilePage.js";
 import RegisterPage from "./views/examples/RegisterPage.js";
 import LoginPage from "./views/examples/LoginPage";
 import AdminLayout from "./layouts/Admin.jsx";
-import FormAudience from "./components/FormAudience";
 // others
 
 const Auth = {

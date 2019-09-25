@@ -1,10 +1,7 @@
 import React from 'react';
-import {Button, Col} from "reactstrap";
+import {Col} from "reactstrap";
 
 class MailsButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     handleClick = () => {
         let id = this.props.audience.id;

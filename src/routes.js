@@ -20,7 +20,6 @@ import Dashboard from "./views/Dashboard.jsx";
 import TableList from "./views/Tables.jsx";
 import UserPage from "./views/User.jsx";
 import Logout from "./components/Logout.jsx";
-import FormAudience from "./components/FormAudience";
 
 var routes = [
   {

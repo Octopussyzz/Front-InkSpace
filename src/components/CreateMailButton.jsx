@@ -1,13 +1,9 @@
 import React from 'react';
-import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import {Button} from "reactstrap";
 
 class CreateMailButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     handleClick = () => {
-        console.log(this.props);
         let id = this.props.id;
         window.location = "/admin/audience/" + id + "/mail";
     };
@@ -15,9 +11,6 @@ class CreateMailButton extends React.Component {
     render() {
         return (
             <>
-                {/*<UncontrolledTooltip placement="right" target={this.props.id}>
-                    Delete Audience
-                </UncontrolledTooltip>*/}
                 <Button
                     className="btn-round btn-icon"
                     color="success"

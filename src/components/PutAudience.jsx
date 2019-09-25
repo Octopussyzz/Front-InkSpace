@@ -9,7 +9,6 @@ class PutAudience extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            //id: null,
             name: "",
             description: "",
             public: false,
@@ -29,7 +28,6 @@ class PutAudience extends React.Component {
             }
         });
         this.setState({
-               //id: response.data.id,
                 name: response.data.name,
                 description: response.data.description,
                 public: response.data.public
@@ -47,7 +45,6 @@ componentDidMount() {
 }
 
     putAudiences = async (jwt, id) => {
-
         await Axios({
             method: 'put',
             url: 'http://localhost:8080/api/audience/' + id,
@@ -94,8 +91,6 @@ componentDidMount() {
         this.setState({
             description: description
         });
-        console.log(this.props)
-        console.log(this.state)
     }
 
     handleSubmit = event => {

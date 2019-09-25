@@ -24,10 +24,8 @@ import {
   CardHeader,
   CardBody,
   CardTitle,
-  Table,
   Row,
   Col, Button,
-    UncontrolledTooltip
 } from "reactstrap";
 import Audience from "../components/Audience";
 

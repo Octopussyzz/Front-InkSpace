@@ -1,8 +1,5 @@
 import React from 'react';
 import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reactstrap";
-import DeleteButton from "./DeleteButton";
-import PutButton from "./PutButton";
-import CreateMailButton from "./CreateMailButton";
 import DraftButton from "./DraftButton";
 
 class DisplayMailList extends React.Component {
@@ -50,8 +47,6 @@ class DisplayMailList extends React.Component {
                                 <Button color="primary" onClick={this.handleClick}>Cancel</Button>{' '}
                             </ModalFooter>
                         </Modal>
-
-
                     </Col>
                 </Row>
             </div>)

@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from "axios";
 import DisplayMailList from "./DisplayMaillist";
 import Card from "reactstrap/es/Card";
-import {CardHeader, CardTitle, Col, Row} from "reactstrap";
+import {CardHeader, CardBody, CardTitle, Col, Row} from "reactstrap";
 
 class MailList extends React.Component {
 
@@ -49,7 +49,6 @@ class MailList extends React.Component {
 
     componentDidMount (){
         let jwt = this.getToken();
-        console.log(this.props);
         let id = this.props.match.params.id;
         this.getCurrentAudience(jwt, id);
         this.getMailLists(jwt, id);
@@ -67,9 +66,14 @@ class MailList extends React.Component {
                                 </CardHeader>
                             </Card>
                 <Card className="card-user">
-                {this.state.mails.map(mail =>
-                    <DisplayMailList mail={mail} key={mail.id} audience_id={this.state.audience_id}/>
-                )}
+                    <CardHeader>
+
+                    </CardHeader>
+                    <CardBody>
+                        {this.state.mails.map(mail =>
+                            <DisplayMailList mail={mail} key={mail.id} audience_id={this.state.audience_id}/>
+                        )}
+                    </CardBody>
                 </Card>
                         </Col>
                     </Row>

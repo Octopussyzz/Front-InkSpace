@@ -24,12 +24,10 @@ import { Route, Switch } from "react-router-dom";
 import DemoNavbar from "../components/Navbars/DemoNavbar.jsx";
 import Footer from "../components/Footer/Footer.jsx";
 import Sidebar from "../components/Sidebar/Sidebar.jsx";
-// import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
 
 
 import routes from "../routes.js";
 import {PrivateRoute} from "../index.js";
-import Index from "../views/Index";
 import FormAudience from "../components/FormAudience";
 import PutAudience from "../components/PutAudience";
 import CreateMail from "../components/CreateMail";

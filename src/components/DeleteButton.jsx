@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Row, UncontrolledTooltip, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Axios from "axios";
 
 class DeleteButton extends React.Component {
@@ -29,7 +29,6 @@ class DeleteButton extends React.Component {
 
     handleDelete = () => {
         let id = this.props.id;
-        console.log(this.props.id);
         this.deleteAudience(id);
         window.location.reload();
     };
@@ -37,9 +36,6 @@ class DeleteButton extends React.Component {
     render() {
         return (
             <>
-                {/*<UncontrolledTooltip placement="right" target={this.props.id}>
-                    Delete Audience
-                </UncontrolledTooltip>*/}
                 <Button
                     className="btn-round btn-icon"
                     color="danger"
@@ -56,7 +52,7 @@ class DeleteButton extends React.Component {
                         Do you really want to delete this audience ?
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.toggle}>Cancel</Button>{' '}
+                        <Button color="primary" onClick={this.toggle}>Cancel</Button>
                         <Button color="danger" onClick={this.handleDelete}>Delete</Button>
                     </ModalFooter>
                 </Modal>
