@@ -26,10 +26,7 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 import "./assets/css/paper-kit.css";
 
 // pages
-import Index from "./views/Index.js";
-import NucleoIcons from "./views/NucleoIcons.js";
 import LandingPage from "./views/examples/LandingPage.js";
-import ProfilePage from "./views/examples/ProfilePage.js";
 import RegisterPage from "./views/examples/RegisterPage.js";
 import LoginPage from "./views/examples/LoginPage";
 import AdminLayout from "./layouts/Admin.jsx";
@@ -83,19 +80,11 @@ ReactDOM.render(
     <Switch>
         <Route path="/admin"  render={props => <AdminLayout {...props} />} />
 
-      <Route path="/index" render={props => <Index {...props} />} />
-      <Route
-        path="/nucleo-icons"
-        render={props => <NucleoIcons {...props} />}
-      />
       <Route
         path="/landing-page"
         render={props => <LandingPage {...props} />}
       />
-      <Route
-        path="/profile-page"
-        render={props => <ProfilePage {...props} />}
-      />
+
       <Route
         path="/register-page"
         render={props => <RegisterPage {...props} />}
@@ -105,8 +94,6 @@ ReactDOM.render(
         render={props => <LoginPage />}
       />
       <PrivateRoute path='/protected' component={Protected} />
-        {/*<Redirect to="/landing-page" />*/}
-        {/*<Redirect to="/admin/dashboard" />*/}
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
